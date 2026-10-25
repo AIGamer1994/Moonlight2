@@ -1,0 +1,6 @@
+{
+  "name": "月光郵局",
+  "description": "原創的 2–4 人線上推理卡牌遊戲，支援真人玩家與 AI 郵差。",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

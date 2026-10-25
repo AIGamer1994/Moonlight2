@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <meta name="theme-color" content="#0b1024">
+  <title>🌙月光郵局</title>
+  <meta name="description" content="原創的 2–4 人線上推理卡牌遊戲，支援真人玩家與 AI 郵差。" />
+  <meta property="og:title" content="🌙月光郵局" />
+  <meta property="og:description" content="原創的 2–4 人線上推理卡牌遊戲，支援真人玩家與 AI 郵差。" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="stylesheet" href="./styles.css?v=1.0.8">
+</head>
+<body>
+  <div class="version-tag" id="app-version" title="月光郵局版本">
+    <span class="version-dot"></span>
+    <span id="version-text">v1.0.8</span>
+  </div>
+  <div class="rising-stars" aria-hidden="true"></div>
+  <main class="app">
+    <header>
+      <p class="eyebrow">A STORY BY MOONLIGHT</p>
+      <h1>月光郵局</h1>
+      <p class="subtitle">把心意寄出，在星光下讀懂彼此。</p>
+      <div class="header-actions"><button id="open-rules" class="button light small">查看遊戲規則</button></div>
+    </header>
+
+    <section class="card">
+      <div id="lobby" class="stack">
+        <div>
+          <h2 class="section-title">今晚的月色很美，你呢？</h2>
+          <p class="help">建立月光郵局，邀請朋友或加入 AI 郵差<span class="mobile-only-break"></span>(支援 2–4 位玩家)</p>
+        </div>
+
+        <button id="create-room" class="button">建立新郵局</button>
+
+        <div class="divider">或輸入朋友的房間代碼</div>
+
+        <div class="join-row">
+          <input id="room-input" maxlength="6" inputmode="numeric" placeholder="6 位數房間代碼" aria-label="房間代碼">
+          <button id="join-room" class="button light">加入</button>
+        </div>
+      </div>
+
+      <div id="room" class="hidden">
+        <div class="room-top">
+          <div>
+            <div class="room-code-row">
+              <div class="room-label">郵局代碼</div>
+              <div class="room-code" id="room-code"></div>
+              <button class="copy-code button light" id="copy-code" type="button" aria-label="複製房間代碼" title="複製房間代碼">
+                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <rect x="8" y="8" width="12" height="12" rx="2"></rect>
+                  <path d="M16 8V5a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h3"></path>
+                </svg>
+              </button>
+            </div>
+          </div>
+          <div class="room-actions">
+            <button class="notification-toggle" id="notification-toggle" type="button" aria-pressed="true" title="切換行動通知">
+              <span>彈出通知</span>
+              <span class="notification-switch" aria-hidden="true"><span class="notification-switch-thumb"></span></span>
+            </button>
+            <button class="button light small" id="open-room-rules">遊戲規則</button>
+            <button class="button light small" id="leave-room">離開</button>
+          </div>
+        </div>
+        <div id="room-content"></div>
+      </div>
+
+      <div id="notice" class="notice" role="status">
+        <span id="notice-text"></span>
+      </div>
+    </section>
+
+    <p class="footer-note">月光郵局是參考原作桌遊「情書」的線上推理卡牌遊戲。玩家可加入 AI 玩家或邀請其他人加入房間。</p>
+  </main>
+
+  <div id="rules-modal" class="modal-backdrop hidden" role="presentation">
+    <section class="modal rules-modal" role="dialog" aria-modal="true" aria-labelledby="rules-title">
+      <h3 id="rules-title">月光郵局｜角色與規則</h3>
+      <p>每位玩家每回合抽一張牌，再打出一張並執行效果。最後留在場上的玩家比較手牌，勝者獲得月光印記；先集滿 3 枚者獲勝。</p>
+      <div id="rules-list" class="rules-grid"></div>
+      <div class="modal-actions"><button id="close-rules" class="button">知道了</button></div>
+    </section>
+  </div>
+
+  <script type="module" src="./game.js?v=1.0.8"></script>
+</body>
+</html>
