@@ -442,6 +442,11 @@
       background: #7dd3fc;
       box-shadow: 0 0 6px #7dd3fcaa;
     }
+    .mobile-version { display: none; }
+    @media (max-width: 600px) {
+      .desktop-version { display: none; }
+      .mobile-version { display: inline; }
+    }
     @media (max-width: 640px) {
       .version-tag {
         top: 10px;
@@ -501,7 +506,6 @@
       touch-action: pan-y;
       overscroll-behavior: contain;
     }
-
 
 
 
